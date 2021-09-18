@@ -1,0 +1,58 @@
+/**
+ * Hilfsfunktionen
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-fachtag
+ */
+
+
+
+/**
+ * Entfernt die Einheit bei einer Wertangabe
+ *
+ * @source  https://css-tricks.com/snippets/sass/strip-unit-function/
+ * @param   $value  eine beliebige Wertangabe
+ * @return  die Wertangabe ohne Einheit
+ */
+
+@function strip-unit( $value ) {
+    @return $value / ( $value * 0 + 1 );
+}
+
+
+
+/**
+ * Ermittelt den größten (nummerischen) Wert einer Map
+ *
+ * @param   $map
+ * @return  der ermittelte Wert
+ */
+
+@function map-max( $map ) {
+  $result: 0;
+
+  @each $value in map_values( $map ) {
+    $result: max( $result, strip-unit( $value ) );
+  }
+
+  @return $result;
+}
+
+
+
+/**
+ * Ermittelt den kleinsten (nummerischen) Wert einer Map
+ *
+ * @param   $map
+ * @return  der ermittelte Wert
+ */
+
+@function map-min( $map ) {
+  $result: 0;
+
+  @each $value in map_values( $map ) {
+    $result: min( $result, strip-unit( $value ) );
+  }
+
+  @return $result;
+}

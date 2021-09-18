@@ -1,0 +1,89 @@
+/**
+ * Mixins zur Realisierung von responsiven Websites
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-fachtag
+ */
+
+
+
+/* Hilfsfunktionen einbinden */
+
+@import "_responsive-helper";
+
+
+
+/**
+ *  Media-Breakpoints
+ *
+ * @source https://developer.wordpress.org/block-editor/packages/packages-viewport/
+ */
+
+$breakpoints: (
+    mobile: 30rem,      // = 480px
+    small:  35.5rem,    // = 600px,
+    medium: 48.875rem,  // = 782px,
+    large:  60rem,      // = 960px,
+    wide:   80rem,      // = 1280px,
+    huge:   90rem,      // = 1440px,
+) !default;
+
+
+
+
+/**
+ * Erzeugt einen Media-Breakpoint
+ *
+ * @source https://davidwalsh.name/write-media-queries-sass
+ * @source https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
+ * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+ *
+ * @param  $breakpoint  einer der folgenden Werte: mobile, small, medium, large, wide, huge
+ */
+
+@mixin respond-to( $breakpoint) {
+
+    @if map-has-key( $breakpoints, $breakpoint ) {
+        $value: map-get( $breakpoints, $breakpoint );
+
+        @media screen and (min-width: #{$value}) {
+            @content;
+        }
+    }
+}
+
+
+
+/**
+ * Erzeugt eine dynamische (fluide) Anpassung einer CSS-Property
+ *
+ * @source https://css-tricks.com/snippets/css/fluid-typography/
+ * @source https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
+ * @source https://www.madebymike.com.au/writing/fluid-type-calc-examples/
+ * @source https://www.madebymike.com.au/writing/precise-control-responsive-typography/
+ *
+ * @param  $property   die CSS-Eigenschaft (z.B. font-size)
+ * @param  $min-size   untere Größengrenze (rem)
+ * @param  $max-size   obere Größengrenze (rem)
+ */
+
+@mixin fluid-size( $property, $min-size, $max-size ) {
+
+    $min-vw: map-get( $breakpoints, mobile );
+    $max-vw: map-get( $breakpoints, huge );
+
+    & {
+        // Viewport ist kleiner als mobile
+        #{$property}: $min-size;
+
+        // Viewport liegt zwischen mobile und huge
+        @include respond-to( mobile ) {
+            #{$property}: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+
+        // Viewport ist größer als huge
+        @include respond-to( huge ) {
+            #{$property}: $max-size;
+        }
+    }
+}
