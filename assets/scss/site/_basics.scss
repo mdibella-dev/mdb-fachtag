@@ -1,0 +1,21 @@
+/**
+ * Grundlegende Einstellungen für Tags
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package congressomat-lymphkongress
+ */
+
+
+
+body {
+    font-family: $sans;
+    font-weight: 300;
+    font-style: normal;
+    font-variant: normal;
+    font-size: 20px;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    background: $gray;
+}

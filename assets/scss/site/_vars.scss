@@ -1,0 +1,39 @@
+/**
+ * Variablen
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-fachtag
+ */
+
+
+
+/* Schriften */
+
+$sans:                      'Roboto', Arial, sans-serif;
+$sans-condensed:            'Roboto Condensed', Arial, sans-serif;
+
+
+/* Abstände und Größen */
+
+
+$header-height:             80px;
+$header-stripes-height:     5px;
+
+
+
+/* Farbpalette */
+
+$black:                     #000;
+$white:                     #fff;
+$gray:                      #f2f2f2;
+$darkgray:                  #646363;
+
+$natur:                     #00892c;
+$wasser:                    #0095d8;
+$heide:                     #970e7e;
+$sandstein:                 #ac9d89;
+
+
+/* Benannte Farben */
+
+$primary:                   $heide;

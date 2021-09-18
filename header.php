@@ -34,13 +34,26 @@ defined( 'ABSPATH' ) or exit;
     <body <?php body_class(); ?>>
 
         <header id="header">
-            <?php
-            if( has_nav_menu( 'primary' ) ) :
-                wp_nav_menu( array(
-                    'theme_location' => 'primary',
-                    'container'      => 'nav',
-                    'container_id'   => 'primary',
-                ) );
-            endif;
-            ?>
+            <div id="header-wrapper">
+
+                <div id="header-navigation" class="container">
+                    <?php
+                    if( has_nav_menu( 'primary' ) ) :
+                        wp_nav_menu( array(
+                            'theme_location' => 'primary',
+                            'container'      => 'nav',
+                            'container_id'   => 'primary',
+                        ) );
+                    endif;
+                    ?>
+                </div>
+
+                <div id="header-stripes">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
 	    </header>

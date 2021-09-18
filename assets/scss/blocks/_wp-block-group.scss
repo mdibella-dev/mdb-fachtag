@@ -1,0 +1,21 @@
+/**
+ * Custom Styles für wp-block-group
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-fachtag
+ */
+
+
+
+.wp-block-group.is-style-box {
+    background-color: $white;
+    margin: 2rem auto;
+    //box-shadow: 0 5px 5px rgba(0,0,0,0.06),0 1px 20px 40px rgba(0,0,0,0.01);
+
+    & > .wp-block-group__inner-container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 2% 0;
+    }
+
+}

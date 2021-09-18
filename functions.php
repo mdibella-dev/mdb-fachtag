@@ -19,7 +19,7 @@ error_reporting( E_ALL ^ E_NOTICE );
 /* Funktionsbibliothek einbinden */
 
 //require_once( get_template_directory() . '/inc/performance.php' );
-//require_once( get_template_directory() . '/inc/block-editor.php' );
+require_once( get_template_directory() . '/inc/block-editor.php' );
 //require_once( get_template_directory() . '/inc/hooks.php' );
 require_once( get_template_directory() . '/inc/setup.php' );
 

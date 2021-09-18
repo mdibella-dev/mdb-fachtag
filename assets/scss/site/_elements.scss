@@ -1,0 +1,94 @@
+/**
+ * Variablen
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-fachtag
+ */
+
+
+
+
+/* #header */
+
+#header,
+#header-wrapper {
+    height: $header-height;
+    width: 100%;
+}
+
+
+#header-wrapper {
+    background: $white;
+    position: fixed;
+    display: block;
+}
+
+
+#header-stripes {
+    width: 100%;
+    height: $header-stripes-height;
+    display: flex;
+    flex-wrap: nowrap;
+
+    & > div {
+        width: 25%;
+    }
+
+    & > div:nth-of-type(1) {
+        background: $natur;
+    }
+
+    & > div:nth-of-type(2) {
+        background: $wasser;
+    }
+
+    & > div:nth-of-type(3) {
+        background: $heide;
+    }
+
+    & > div:nth-of-type(4) {
+        background: $sandstein;
+    }
+
+}
+
+
+#header-navigation {
+    height: calc( #{$header-height} - #{$header-stripes-height} );
+}
+
+
+/* #primary */
+
+#primary ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    & > li {
+        display: inline-block;
+        margin: 0 15px;
+    }
+}
+
+
+
+/* #footer */
+
+#footer {
+    background: $darkgray;
+}
+
+
+/* #secondary */
+
+#secondary ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    & > li {
+        display: inline-block;
+        margin: 0 15px;
+    }
+}
