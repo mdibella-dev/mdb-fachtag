@@ -56,6 +56,27 @@ if( ! function_exists( 'mdb_theme_setup' ) ) :
         add_theme_support( 'editor-styles' );
         add_editor_style( 'assets/css/editor-styles.min.css' );
 
+        $palette = array();
+        $colors  = array(
+            'Weiß, white, #fff',
+            'Text, textgray, #4b6676',
+            'Schwarz, black, #000',
+            'Natur, nature, #00892c',
+            'Wasser, water, #0095d8',
+            'Heide, heath, #970e7e',
+            'Sandstein, sandstone, #ac9d89',
+        );
+
+        foreach( $colors as $color ) :
+            $part      = explode( ',', $color );
+            $palette[] = array(
+                'name'  => __( trim( $part[0] ), 'mdb' ),
+                'slug'  => trim( $part[1] ),
+                'color' => trim( $part[2] )
+            );
+        endforeach;
+        add_theme_support( 'editor-color-palette', $palette );
+
 
         /* Einstellen der Mediengrößen */
 

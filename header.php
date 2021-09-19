@@ -37,6 +37,11 @@ defined( 'ABSPATH' ) or exit;
             <div id="header-wrapper">
 
                 <div id="header-navigation" class="container">
+
+                    <a href="/">
+                        <div id="header-logo"></div>
+                    </a>
+
                     <?php
                     if( has_nav_menu( 'primary' ) ) :
                         wp_nav_menu( array(

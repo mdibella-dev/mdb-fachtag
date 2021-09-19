@@ -9,15 +9,15 @@
 
 /* Schriften */
 
-$sans:                      'Roboto', Arial, sans-serif;
-$sans-condensed:            'Roboto Condensed', Arial, sans-serif;
+$sans:                      "Segoe UI","Myriad",sans-serif, Arial, sans-serif;      // Segoe UI = Frutiger Clone
 
 
 /* Abstände und Größen */
 
 
-$header-height:             80px;
-$header-stripes-height:     5px;
+$header-height:             4.5rem;     // 85px
+$header-height__large:      7.5rem;     // 150px
+$header-stripes-height:     .5rem;
 
 
 
@@ -37,3 +37,4 @@ $sandstein:                 #ac9d89;
 /* Benannte Farben */
 
 $primary:                   $heide;
+$textgray:                  #4b6676;

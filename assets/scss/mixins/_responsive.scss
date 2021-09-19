@@ -19,13 +19,13 @@
  * @source https://developer.wordpress.org/block-editor/packages/packages-viewport/
  */
 
-$breakpoints: (
-    mobile: 30rem,      // = 480px
-    small:  35.5rem,    // = 600px,
-    medium: 48.875rem,  // = 782px,
-    large:  60rem,      // = 960px,
-    wide:   80rem,      // = 1280px,
-    huge:   90rem,      // = 1440px,
+$breakpoints: (             // Kalkuliert auf Basis von 1rem = 20px
+    mobile: 24rem,          // = 480px
+    small:  30rem,          // = 600px,
+    medium: 39.1rem,        // = 782px,
+    large:  48rem,          // = 960px,
+    wide:   64rem,          // = 1280px,
+    huge:   72rem,          // = 1440px,
 ) !default;
 
 

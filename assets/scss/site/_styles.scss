@@ -11,7 +11,92 @@
 /* Container */
 
 .container {
-    max-width: 80rem;
+    max-width: 64rem;
     width: 90%;
     margin: 0 auto;
+}
+
+
+/* Title */
+
+.section-title {
+    line-height: 1.2;
+    font-weight: 300;
+    padding-bottom: .5rem;
+    font-size: 2rem;
+
+    & + .section-title {
+        margin-top: -1.5rem;
+    }
+}
+
+
+/* Blockeditor-Palette */
+
+.has-nature-color {
+    color: $natur;
+}
+
+.has-water-color {
+    color: $wasser;
+}
+
+.has-heath-color {
+    color: $heide;
+}
+
+.has-sandstone-color {
+    color: $sandstein;
+}
+
+.has-white-color {
+    color: $white;
+}
+
+.has-black-color {
+    color: $black;
+}
+
+.has-textgray-color {
+    color: $textgray;
+}
+
+.has-nature-background-color {
+    background-color: $natur;
+}
+
+.has-water-background-color {
+    background-color: $wasser;
+}
+
+.has-heath-background-color {
+    background-color: $heide;
+}
+
+.has-sandstone-background-color {
+    background-color: $sandstein;
+}
+
+.has-white-background-color {
+    background-color: $white;
+}
+
+.has-black-background-color {
+    background-color: $black;
+}
+
+.has-textgray-background-color {
+    background-color: $textgray;
+}
+
+
+/* Programm */
+
+.programm {
+    margin-top: 2rem;
+    border: 1px solid #ddd;
+
+    .wp-block-columns {
+        margin-bottom: 0;
+    }
 }
