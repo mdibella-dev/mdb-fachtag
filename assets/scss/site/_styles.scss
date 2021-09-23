@@ -100,3 +100,35 @@
         margin-bottom: 0;
     }
 }
+
+
+/* Workshops */
+
+.workshops {
+    display: flex;
+    flex-wrap: wrap;
+
+    .workshop {
+        box-sizing: border-box;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        margin: .5rem;
+        width: calc(100% - 1rem);
+
+        @include respond-to(medium) {
+            width: calc(50% - 1rem);
+        }
+    }
+
+    .workshop-titel,
+    .workshop-moderation {
+        color: $primary;
+    }
+
+    .workshop-moderation,
+    .workshop-freie-plaetze {
+        font-size: 80%;
+    }
+
+}

@@ -23,6 +23,4 @@ require_once( get_template_directory() . '/inc/block-editor.php' );
 //require_once( get_template_directory() . '/inc/hooks.php' );
 require_once( get_template_directory() . '/inc/setup.php' );
 
-//require_once( get_template_directory() . '/inc/post-types/post-type-workshop.php' );
-
-//require_once( get_template_directory() . '/inc/shortcodes/shortcode-workshops.php' );
+require_once( get_template_directory() . '/inc/shortcodes/shortcode-workshops.php' );
