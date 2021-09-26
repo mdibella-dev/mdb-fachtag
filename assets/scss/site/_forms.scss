@@ -1,0 +1,194 @@
+/**
+ * Formular-Elemente
+ *
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @package mdb-fachtag
+ */
+
+
+
+
+.frm_fields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.frm_field {
+    width: 100%;
+    padding: .75rem 1rem;
+
+    @include respond-to(medium) {
+
+        &.frm_field_half {
+            width: 48.75%;
+        }
+
+        &.frm_field_two_third {
+            width: 65.82%;
+        }
+
+    }
+}
+
+
+.frm_field.frm_field_row {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+
+    & > span:nth-of-type(1) {
+        width: calc(100% - 2*81px);
+        padding-right: 1rem;
+
+        @include respond-to(large) {
+            width: calc(100% - 2*132px);
+        }
+    }
+
+    & > span:nth-of-type(2),
+    & > span:nth-of-type(3) {
+        width: 81px;
+        text-align: center;
+
+        @include respond-to(large) {
+            width: 132px;
+        }
+    }
+}
+
+
+.frm_field.frm_field_row.frm_label {
+    font-weight: bold;
+
+    span.kurz {
+        display: inline-block;
+
+        @include respond-to(large) {
+            display: none;
+        }
+    }
+
+    span.lang {
+        display: none;
+
+        @include respond-to(large) {
+            display: inline-block;
+        }
+    }
+
+}
+
+
+.frm_field.frm_field_submit {
+    text-align: center;
+}
+
+
+.frm-more-space {
+    margin-top: 2rem;
+}
+
+
+/* */
+
+label {
+    font-weight: bold;
+    font-size: 90%;
+    margin-bottom: .5rem;
+    display: inline-block;
+}
+
+
+textarea,
+input[type='text'],
+input[type='email'] {
+    width: 100%;
+    font-size: 1rem;
+    padding: .25rem .5rem;
+    outline: none !important;
+    background: rgba(0,0,0,.05);
+    border-radius: 3px;
+    border: 2px solid transparent;
+    color: $textgray;
+
+    &:focus {
+        border-color: $primary;
+        color: $primary;
+    }
+}
+
+
+input[type='radio'] {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: 0.2s all linear;
+    outline: 2px solid transparent;
+    margin: 5px;
+    background: rgba(0,0,0,.05);
+
+    &:checked {
+        border: 6px solid $primary;
+        outline-color: $primary;
+    }
+}
+
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: 3px solid $primary;
+    border-radius: 3px;
+    color: $primary;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background: $white;
+    transition: 0.2s all linear;
+    cursor: pointer;
+
+    &:focus {
+        box-shadow: 0 0 0 .2rem rgba(108,117,125,.5);
+    }
+
+    &:disabled {
+        border-color: $textgray;
+        color: $textgray;
+        cursor: not-allowed;
+    }
+}
+
+
+/** Notices **/
+
+.notice {
+    padding: .25rem;
+    margin: 0rem 1rem 2rem;
+    border-radius: 3px;
+    background: $natur;
+    color:$white;
+    text-align: center;
+
+    &.notice-info {
+        background: $wasser;
+    }
+
+    &.notice-warning {
+        background: $sandstein;
+    }
+
+    &.notice-error {
+        background: $heide;
+    }
+}

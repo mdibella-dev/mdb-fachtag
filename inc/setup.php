@@ -104,6 +104,43 @@ if( ! function_exists( 'mdb_theme_setup' ) ) :
 
         register_nav_menu( 'primary', __( 'Hauptnavigation', 'mdb' ) );
         register_nav_menu( 'secondary', __( 'Navigation in der Fußzeile', 'mdb' ) );
+
+
+        /* Einrichten der Tabellen */
+
+        global $wpdb;
+
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+        $table_charset_collate = $wpdb->get_charset_collate();
+        $table_name            = $wpdb->prefix . TABLE_USER;
+
+        if( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
+
+            $sql = "CREATE TABLE $table_name (
+                user_id             INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                user_forename       VARCHAR(255) DEFAULT '' NOT NULL,
+                user_lastname       VARCHAR(255) DEFAULT '' NOT NULL,
+                user_email          VARCHAR(255) DEFAULT '' NOT NULL,
+                user_location       VARCHAR(255) DEFAULT '' NOT NULL,
+                user_institution    VARCHAR(255) DEFAULT '' NOT NULL,
+                user_function       VARCHAR(255) DEFAULT '' NOT NULL,
+                user_dob            VARCHAR(10) DEFAULT '' NOT NULL,
+                user_vormittag      VARCHAR(1) DEFAULT '' NOT NULL,
+                user_nachmittag     VARCHAR(1) DEFAULT '' NOT NULL,
+                user_registered     DATETIME DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (user_id)
+                )
+                $table_charset_collate;";
+
+            dbDelta( $sql );
+        endif;
+
+
+        /* Pfad für Export-Dateien anlegen */
+
+        $upload_dir = wp_upload_dir();
+        wp_mkdir_p( $upload_dir['basedir'] . '/' . EXPORT_FOLDER );
     }
 
     add_action( 'after_setup_theme', 'mdb_theme_setup' );
