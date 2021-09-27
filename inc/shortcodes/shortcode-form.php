@@ -166,8 +166,8 @@ function mdb_shortcode_form( $atts, $content = null )
         foreach( $workshops as $workshop ) :
             $ws_id              = get_field( 'id', $workshop->ID );
             $ws_titel           = get_field( 'titel', $workshop->ID );
-            $ws_freie_plaetze_1 = get_field( 'freie_plaetze_am_vormittag', $workshop->ID );
-            $ws_freie_plaetze_2 = get_field( 'freie_plaetze_am_nachmittag', $workshop->ID );
+            $ws_freie_plaetze_1 = (int) get_field( 'freie_plaetze_am_vormittag', $workshop->ID );
+            $ws_freie_plaetze_2 = (int) get_field( 'freie_plaetze_am_nachmittag', $workshop->ID );
 
             echo '<div class="frm_field frm_field_row">';
 
@@ -184,13 +184,15 @@ function mdb_shortcode_form( $atts, $content = null )
                 $posted_id  = (0 == $loopcount)? $user['vormittag'] : $user['nachmittag'];
                 $name       = (0 == $loopcount)? 'field_vormittag' : 'field_nachmittag';
 
-                if( $posted_id === $ws_id ) :
-                    $checked = 'checked="checked"';
-                endif;
 
-                if( 0 === $free ) :
-                    $disabled = 'disabled="disabled"';
-                    $checked  = '';
+                if( 0 !== $free ) :
+
+                    if( $posted_id === $ws_id ) :
+                        $checked = 'checked="checked"';
+                    endif;
+
+                else :
+                    $disabled = 'class="disable"';
                 endif;
 
                 echo sprintf(

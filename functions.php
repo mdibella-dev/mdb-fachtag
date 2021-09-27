@@ -37,9 +37,13 @@ define( 'OPTION_MAIL_MESSAGE',  'fachtagung_mail_message' );
 
 /* Funktionsbibliothek einbinden */
 
+require_once( get_template_directory() . '/inc/classes/class-modified-list-table.php' );
+require_once( get_template_directory() . '/inc/classes/class-user-list-table.php' );
+
 require_once( get_template_directory() . '/inc/block-editor.php' );
 require_once( get_template_directory() . '/inc/core.php' );
 require_once( get_template_directory() . '/inc/setup.php' );
+require_once( get_template_directory() . '/inc/users.php' );
 
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-workshops.php' );
 require_once( get_template_directory() . '/inc/shortcodes/shortcode-form.php' );
