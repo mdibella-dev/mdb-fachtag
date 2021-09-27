@@ -133,10 +133,16 @@ input[type='radio'] {
     outline: 2px solid transparent;
     margin: 5px;
     background: rgba(0,0,0,.05);
+    cursor: pointer;
 
     &:checked {
         border: 6px solid $primary;
         outline-color: $primary;
+    }
+
+    &.disable {
+        pointer-events: none;
+        background: rgba(0,0,0,.02);
     }
 }
 
@@ -163,8 +169,8 @@ button,
     }
 
     &:disabled {
-        border-color: $textgray;
-        color: $textgray;
+        border-color: rgba(0,0,0,.02);
+        color: rgba(0,0,0,.02);
         cursor: not-allowed;
     }
 }

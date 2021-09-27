@@ -65,8 +65,12 @@ function mdb_shortcode_form( $atts, $content = null )
             $user['nachmittag'] = $_POST['field_nachmittag'];
         endif;
 
-
         $code = mdb_add_user( $user );
+
+        if( STATUS_USER_ADDED === $code ) :
+            $user = array();
+        endif;
+
     endif;
 
 
@@ -180,12 +184,13 @@ function mdb_shortcode_form( $atts, $content = null )
                 $posted_id  = (0 == $loopcount)? $user['vormittag'] : $user['nachmittag'];
                 $name       = (0 == $loopcount)? 'field_vormittag' : 'field_nachmittag';
 
-                if( 0 === $free ) :
-                    $disabled = 'disabled="disabled"';
-                endif;
-
                 if( $posted_id === $ws_id ) :
                     $checked = 'checked="checked"';
+                endif;
+
+                if( 0 === $free ) :
+                    $disabled = 'disabled="disabled"';
+                    $checked  = '';
                 endif;
 
                 echo sprintf(
