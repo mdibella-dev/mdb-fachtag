@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  int    ein Statuscode
  */
 
-function mdb_add_user( $user )
+function mdb_add_user( $user, $unique_id )
 {
     // Sind noch Plätze frei?
     if( ( false == mdb_check_empty( $user['vormittag'], true ) ) or
@@ -71,6 +71,7 @@ function mdb_add_user( $user )
                 'user_dob'         => $user['dob'],
                 'user_vormittag'   => $user['vormittag'],
                 'user_nachmittag'  => $user['nachmittag'],
+                'unique_id'        => $unique_id,
             );
 
 

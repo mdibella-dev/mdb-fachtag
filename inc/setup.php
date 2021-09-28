@@ -129,6 +129,7 @@ if( ! function_exists( 'mdb_theme_setup' ) ) :
                 user_vormittag      VARCHAR(1) DEFAULT '' NOT NULL,
                 user_nachmittag     VARCHAR(1) DEFAULT '' NOT NULL,
                 user_registered     DATETIME DEFAULT CURRENT_TIMESTAMP,
+                unique_id           VARCHAR(20) DEFAULT '' NOT NULL,
                 PRIMARY KEY (user_id)
                 )
                 $table_charset_collate;";

@@ -25,50 +25,65 @@ function mdb_shortcode_form( $atts, $content = null )
     $code = 0;
     $user = array();
 
+
     /* Formular bearbeiten, wenn bereits abgesendet */
 
     if( isset( $_POST['action'] ) ) :
 
-        if( true === isset( $_POST['field_lastname'] ) ) :
-            $user['lastname'] = $_POST['field_lastname'];
-        endif;
+        global $wpdb;
+               $unique_id  = $_POST['unique_id'];
+               $table_name = $wpdb->prefix . TABLE_USER;
 
-        if( true === isset( $_POST['field_forename'] ) ) :
-            $user['forename'] = $_POST['field_forename'];
-        endif;
 
-        if( true === isset( $_POST['field_email'] ) ) :
-            $user['email'] = $_POST['field_email'];
-        endif;
+        // Nochmaliges Absenden verhindern
 
-        if( true === isset( $_POST['field_location'] ) ) :
-            $user['location'] = $_POST['field_location'];
-        endif;
+        $result = $wpdb->get_results( "SELECT * FROM " . $table_name . " WHERE unique_id='" . $unique_id . "'" );
 
-        if( true === isset( $_POST['field_institution'] ) ) :
-            $user['institution'] = $_POST['field_institution'];
-        endif;
+        if( empty ( $result[0] ) ) :
 
-        if( true === isset( $_POST['field_function'] ) ) :
-            $user['function'] = $_POST['field_function'];
-        endif;
+            if( true === isset( $_POST['field_lastname'] ) ) :
+                $user['lastname'] = $_POST['field_lastname'];
+            endif;
 
-        if( true === isset( $_POST['field_dob'] ) ) :
-            $user['dob'] = $_POST['field_dob'];
-        endif;
+            if( true === isset( $_POST['field_forename'] ) ) :
+                $user['forename'] = $_POST['field_forename'];
+            endif;
 
-        if( true === isset( $_POST['field_vormittag'] ) ) :
-            $user['vormittag'] = $_POST['field_vormittag'];
-        endif;
+            if( true === isset( $_POST['field_email'] ) ) :
+                $user['email'] = $_POST['field_email'];
+            endif;
 
-        if( true === isset( $_POST['field_nachmittag'] ) ) :
-            $user['nachmittag'] = $_POST['field_nachmittag'];
-        endif;
+            if( true === isset( $_POST['field_location'] ) ) :
+                $user['location'] = $_POST['field_location'];
+            endif;
 
-        $code = mdb_add_user( $user );
+            if( true === isset( $_POST['field_institution'] ) ) :
+                $user['institution'] = $_POST['field_institution'];
+            endif;
 
-        if( STATUS_USER_ADDED === $code ) :
-            $user = array();
+            if( true === isset( $_POST['field_function'] ) ) :
+                $user['function'] = $_POST['field_function'];
+            endif;
+
+            if( true === isset( $_POST['field_dob'] ) ) :
+                $user['dob'] = $_POST['field_dob'];
+            endif;
+
+            if( true === isset( $_POST['field_vormittag'] ) ) :
+                $user['vormittag'] = $_POST['field_vormittag'];
+            endif;
+
+            if( true === isset( $_POST['field_nachmittag'] ) ) :
+                $user['nachmittag'] = $_POST['field_nachmittag'];
+            endif;
+
+            // War die Eintragung des Users erfolgreich?
+            $code = mdb_add_user( $user, $unique_id );
+
+            if( STATUS_USER_ADDED === $code ) :
+                $user = array();
+            endif;
+
         endif;
 
     endif;
@@ -82,10 +97,14 @@ function mdb_shortcode_form( $atts, $content = null )
         mdb_display_notice( $code );
     endif;
 
+    $unique_id = bin2hex( random_bytes( 10 ) );
+
 ?>
 <form id="form_teilnehmer" method="post" action="">
 
     <h3 class="has-heath-color has-text-color">Ihre/Eure Daten</h3>
+
+    <input type="hidden" name="unique_id" value="<?php echo $unique_id; ?>">
 
     <div class="frm_fields">
 
