@@ -34,6 +34,8 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
         $columns = array(
             'col_name'          => 'Teilnehmer',
             'col_email'         => 'E-Mail',
+            'col_institution'   => 'Institution/Organisation',
+            'col_ort'           => 'Ort',
             'col_vormittag'     => 'Vormittag',
             'col_nachmittag'    => 'Nachmittag',
             'col_zeitpunkt'     => 'Anmeldung am',
@@ -79,12 +81,20 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
                 return $item['user_registered'];
             break;
 
+            case 'col_institution':
+                return $item['user_institution'];
+            break;
+
+            case 'col_ort':
+                return $item['userlocation'];
+            break;
+
             case 'col_vormittag':
-                return $item['user_vormittag'];
+                return 'WS ' . $item['user_vormittag'];
             break;
 
             case 'col_nachmittag':
-                return $item['user_nachmittag'];
+                return 'WS ' . $item['user_nachmittag'];
             break;
 
             default:

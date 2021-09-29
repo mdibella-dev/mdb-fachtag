@@ -191,7 +191,8 @@ function mdb_shortcode_form( $atts, $content = null )
             echo '<div class="frm_field frm_field_row">';
 
             echo sprintf(
-                '<span>%1$s</span>',
+                '<span><strong>%1$s:</strong> %2$s</span>',
+                $ws_id,
                 $ws_titel
             );
 

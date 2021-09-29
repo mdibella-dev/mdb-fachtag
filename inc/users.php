@@ -45,7 +45,9 @@ function mdb_show_userpage()
 ?>
     <div class="wrap">
         <h1 class="wp-heading-inline"><?php echo 'Teilnehmer'; ?></h1>
-        <br><br>
+        <p>
+            Die Tabelle gibt einen Überblick über die angemeldeten Teilnehmer. Die erfassten Daten sind hier nur auszugsweise dargestellt; die vollständigen Daten können über die Export-Schaltfläche abgerufen werden.
+        </p>
         <?php
             // Tabelle anzeigen
             $user_table = new MDB_User_List_Table();
@@ -58,7 +60,13 @@ function mdb_show_userpage()
 
             if( false !== $file_info ) :
         ?>
-        <br><br><a class="button button-primary" href="<?php echo $file_info['url']; ?>" download><?php echo 'Daten als CSV exportieren'; ?></a>
+        <p>
+            <a class="button button-primary" href="<?php echo $file_info['url']; ?>" download><?php echo 'Daten als CSV exportieren'; ?></a>
+            <br>
+            <br>
+            Hinweis: Zum Öffnen in Excel die Daten in ein leeres Arbeitsblatt mittels 'Import' einlesen. Bitte auf Semikolon als Trennzeichen und UTF-8 als Zeichensatz achten.
+        </p>
+
         <?php
             endif;
         ?>
