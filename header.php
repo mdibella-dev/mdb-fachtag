@@ -42,15 +42,24 @@ defined( 'ABSPATH' ) or exit;
                         <div id="header-logo"></div>
                     </a>
 
-                    <?php
-                    if( has_nav_menu( 'primary' ) ) :
-                        wp_nav_menu( array(
-                            'theme_location' => 'primary',
-                            'container'      => 'nav',
-                            'container_id'   => 'primary',
-                        ) );
-                    endif;
-                    ?>
+                    <div class="header-items-right">
+                    	<button class="hamburger hamburger--slider">
+                	        <span class="hamburger-box">
+                			    <span class="hamburger-inner"></span>
+                			</span>
+                        </button>
+
+                        <?php
+                        if( has_nav_menu( 'primary' ) ) :
+                            wp_nav_menu( array(
+                                'theme_location' => 'primary',
+                                'container'      => 'nav',
+                                'container_id'   => 'primary',
+                            ) );
+                        endif;
+                        ?>
+                    </div>
+
                 </div>
 
                 <div id="header-stripes">
@@ -61,4 +70,13 @@ defined( 'ABSPATH' ) or exit;
                 </div>
 
             </div>
+            <?php
+            if( has_nav_menu( 'primary' ) ) :
+                wp_nav_menu( array(
+                    'theme_location' => 'primary',
+                    'container'      => 'nav',
+                    'container_id'   => 'primary-aux',
+                ) );
+            endif;
+            ?>
 	    </header>

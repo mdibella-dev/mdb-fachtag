@@ -159,14 +159,6 @@ endif;
 function mdb_enqueue_scripts()
 {
     /*
-     * Laden von Font Awesome 5 Pro
-     * @source  https://fontawesome.com/
-     */
-
-    // wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/vendors/fa5/css/fontawesome-all.min.css' );
-
-
-    /*
      * Registrieren und Laden der Standard-Styles and -Scripts von mdb-theme
      *
      * style.css im Hauptverzeichnis dient nur zur Theme-Identifikation und -Versionierung
@@ -175,12 +167,6 @@ function mdb_enqueue_scripts()
 
     wp_enqueue_style( 'mdb-theme-css', get_template_directory_uri() . '/assets/css/frontend.min.css', array(), '20210825' );
     wp_enqueue_script( 'mdb-theme-js', get_template_directory_uri() . '/assets/js/frontend.js', array( 'jquery' ), false, true );
-
-
-    /* AJAX-Funktionen */
-
-    //wp_enqueue_script( 'ajax', get_template_directory_uri() . '/assets/js/ajax-loadmore.js' );
-    //wp_localize_script( 'ajax', 'mdb_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 }
 
