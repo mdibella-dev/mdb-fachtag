@@ -237,7 +237,7 @@ function mdb_shortcode_form( $atts, $content = null )
     <div class="frm_fields">
         <div class="frm_field" style="padding-top: 0">
             <p>Hiermit melde ich mich verbindlich zum Fachtag Beteiligung an; sollte ich doch verhindert sein, werde ich mich frühzeitig abmelden und meinen Platz einer anderen Person zur Verfügung stellen. Mit der Speicherung und Verarbeitung meiner Daten gemäß der Datenschutzerklärung erkläre ich mich einverstanden. Ich bin damit einverstanden, dass bei der Veranstaltung Foto-, Video- und Audioaufnahmen (u.a. durch die Veranstalter und Presse) angefertigt und diese veröffentlicht werden.</p>
-            <p><strong>Hygienekonzept:</strong> Für die Veranstaltung wird es ein an die aktuellen Bestimmungen angepasstes Hygienekonzept geben. Wir bitten die Überprüfung des Impfstatus vor Ort möglich zu machen.</p>
+            <p><strong>Hygienekonzept:</strong> Für die Veranstaltung wird es ein an die aktuellen Bestimmungen angepasstes Hygienekonzept geben. Geplant ist, die Veranstaltung mit der 3G-Regel durchzuführen. Wir bitten die Überprüfung des Impfstatus vor Ort zu ermöglichen. Nicht geimpfte Personen bringen bitte ein aktuelles negatives PCR- oder PoC-Antigen-Schnelltest Testergebnis mit. Dieses darf nicht älter als 24 Stunden sein.</p>
         </div>
     </div>
 
