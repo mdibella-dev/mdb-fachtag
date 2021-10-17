@@ -86,7 +86,7 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
             break;
 
             case 'col_ort':
-                return $item['userlocation'];
+                return $item['user_location'];
             break;
 
             case 'col_vormittag':
