@@ -17,8 +17,7 @@ defined( 'ABSPATH' ) or exit;
  * @since   1.0.0
  */
 
-function mdb_add_userpage_to_admin_menu()
-{
+function mdb_add_userpage_to_admin_menu() {
     add_menu_page(
         'Teilnehmer',
         'Teilnehmer',
@@ -40,8 +39,7 @@ add_action( 'admin_menu', 'mdb_add_userpage_to_admin_menu' );
  * @since   1.0.0
  */
 
-function mdb_show_userpage()
-{
+function mdb_show_userpage() {
 ?>
     <div class="wrap">
         <h1 class="wp-heading-inline"><?php echo 'Teilnehmer'; ?></h1>

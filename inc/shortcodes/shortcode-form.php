@@ -20,14 +20,12 @@ defined( 'ABSPATH' ) or exit;
  * @return  string          die vom Shortcode erzeugte Ausgabe
  */
 
-function mdb_shortcode_form( $atts, $content = null )
-{
+function mdb_shortcode_form( $atts, $content = null ) {
     $code = 0;
     $user = array();
 
 
-    /* Formular bearbeiten, wenn bereits abgesendet */
-
+    // Formular bearbeiten, wenn bereits abgesendet
     if( isset( $_POST['action'] ) ) :
 
         global $wpdb;
@@ -36,7 +34,6 @@ function mdb_shortcode_form( $atts, $content = null )
 
 
         // Nochmaliges Absenden verhindern
-
         $result = $wpdb->get_results( "SELECT * FROM " . $table_name . " WHERE unique_id='" . $unique_id . "'" );
 
         if( empty ( $result[0] ) ) :
@@ -77,6 +74,7 @@ function mdb_shortcode_form( $atts, $content = null )
                 $user['nachmittag'] = $_POST['field_nachmittag'];
             endif;
 
+
             // War die Eintragung des Users erfolgreich?
             $code = mdb_add_user( $user, $unique_id );
 
@@ -89,8 +87,7 @@ function mdb_shortcode_form( $atts, $content = null )
     endif;
 
 
-    /* Ausgabe des Shortcodes */
-
+    // Ausgabe des Shortcodes
     ob_start();
 
     if( 0 !== $code ) :

@@ -19,15 +19,12 @@ if( ! function_exists( 'mdb_theme_setup' ) ) :
      * @since   1.0.0
      */
 
-     function mdb_theme_setup()
-     {
-        /* Internationalisierung ermöglichen */
-
+     function mdb_theme_setup() {
+        // Internationalisierung ermöglichen
         load_theme_textdomain( 'mdb', get_template_directory() . '/lang' );
 
 
-        /* HTML5-Konformität für bestimmte WordPress-Core-Elementen erreichen */
-
+        // HTML5-Konformität für bestimmte WordPress-Core-Elementen erreichen
         add_theme_support( 'html5', array(
             'comment-list',
             'comment-form',
@@ -39,18 +36,16 @@ if( ! function_exists( 'mdb_theme_setup' ) ) :
         ) );
 
 
-        /* Responsives Einbetten von Embeds ermöglichen */
-
+        // Responsives Einbetten von Embeds ermöglichen
         add_theme_support( 'responsive-embeds' );
 
 
-        /* Post Thumbnails */
-
+        // Post Thumbnails
         add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 178, 9999, false );
 
 
-        /* Block-Editor (Gutenberg) */
+        // Block-Editor (Gutenberg)
 
         add_theme_support( 'align-wide' );
         add_theme_support( 'editor-styles' );
@@ -78,7 +73,7 @@ if( ! function_exists( 'mdb_theme_setup' ) ) :
         add_theme_support( 'editor-color-palette', $palette );
 
 
-        /* Einstellen der Mediengrößen */
+        // Einstellen der Mediengrößen
 
         if( 178 !== get_option( 'thumbnail_size_w' ) ) :
             update_option( 'thumbnail_size_w', 178 );
@@ -100,14 +95,12 @@ if( ! function_exists( 'mdb_theme_setup' ) ) :
         add_image_size( 'huge', 1200, 9999 );
 
 
-        /* Registrieren der Navigationsmenüs */
-
+        // Registrieren der Navigationsmenüs
         register_nav_menu( 'primary', __( 'Hauptnavigation', 'mdb' ) );
         register_nav_menu( 'secondary', __( 'Navigation in der Fußzeile', 'mdb' ) );
 
 
-        /* Einrichten der Tabellen */
-
+        // Einrichten der Tabellen
         global $wpdb;
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -138,8 +131,7 @@ if( ! function_exists( 'mdb_theme_setup' ) ) :
         endif;
 
 
-        /* Pfad für Export-Dateien anlegen */
-
+        // Pfad für Export-Dateien anlegen
         $upload_dir = wp_upload_dir();
         wp_mkdir_p( $upload_dir['basedir'] . '/' . EXPORT_FOLDER );
     }
@@ -156,8 +148,7 @@ endif;
  * @since   1.0.0
  */
 
-function mdb_enqueue_scripts()
-{
+function mdb_enqueue_scripts() {
     /*
      * Registrieren und Laden der Standard-Styles and -Scripts von mdb-theme
      *
@@ -182,8 +173,7 @@ add_action( 'wp_enqueue_scripts', 'mdb_enqueue_scripts', 9999 );
  * @param   string  $hook   die aktuelle Seite im Backend
  */
 
-function mdb_admin_enqueue_scripts( $hook )
-{
+function mdb_admin_enqueue_scripts( $hook ) {
     if( 'edit.php' !== $hook ) :
         return;
     endif;

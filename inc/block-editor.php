@@ -20,12 +20,15 @@ defined( 'ABSPATH' ) or exit;
  * @since   1.0.0
  */
 
-function mdb_enqueue_block_editor_assets()
-{
+function mdb_enqueue_block_editor_assets() {
     // Parent
-    //wp_enqueue_style( 'block-editor', get_template_directory_uri() . '/assets/css/block-editor.min.css', false, 0, 'all' );
-    wp_enqueue_script( 'block-editor', get_template_directory_uri() . '/assets/js/block-editor.js',
-                       array( 'wp-blocks', 'wp-dom' ), 0, true	);
+    wp_enqueue_script(
+        'block-editor',
+        get_template_directory_uri() . '/assets/js/block-editor.js',
+        array( 'wp-blocks', 'wp-dom' ),
+        0,
+        true
+    );
 }
 
 add_action( 'enqueue_block_editor_assets', 'mdb_enqueue_block_editor_assets' );

@@ -22,8 +22,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  string  die Ausgabe
  */
 
-function mdb_shortcode_workshops( $atts, $content = '' )
-{
+function mdb_shortcode_workshops( $atts, $content = '' ) {
     // Variablen setzen
     global $post;
            $output = '';

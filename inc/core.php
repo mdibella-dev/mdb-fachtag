@@ -19,8 +19,7 @@ defined( 'ABSPATH' ) or exit;
  * @return  int    ein Statuscode
  */
 
-function mdb_add_user( $user, $unique_id )
-{
+function mdb_add_user( $user, $unique_id ) {
     // Sind noch Plätze frei?
     if( ( false == mdb_check_empty( $user['vormittag'], true ) ) or
         ( false == mdb_check_empty( $user['nachmittag'], false ) ) ) :
@@ -47,12 +46,6 @@ function mdb_add_user( $user, $unique_id )
         return STATUS_USER_EMAIL_MALFORMED;
     endif;
 
-/*
-    // Ist die E-Mail des Users bereits im Gebrauch?
-    if( TRUE === cmkk_is_email_in_use( $event_id, $user_email ) ) :
-        return STATUS_USER_EMAIL_IN_USE;
-    endif;
-*/
 
     // Plätze reduzieren
     mdb_reduce_empty( $user['vormittag'], true );
@@ -80,15 +73,6 @@ function mdb_add_user( $user, $unique_id )
         return STATUS_CANT_STORE_USER;
     endif;
 
-/*
-    // E-Mail an User senden
-    $mail_to      = $user['email'];
-    $mail_subject = get_option( OPTION_MAIL_SUBJECT );
-    $mail_message = get_option( OPTION_MAIL_MESSAGE );
-    $mail_headers = '';
-    //$mail_headers = array( 'bcc:r.keller@pwg-seminare.de' );
-    $result       = wp_mail( $mail_to, $mail_subject, $mail_message, $mail_headers );
-*/
     return STATUS_USER_ADDED;
 }
 

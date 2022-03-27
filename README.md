@@ -14,5 +14,5 @@ __Tested up to:__ WordPress 5.8
 *Geändert/Entfernt/Hinzugefügt/Fixed*
 
 
-### 0.1  
+### 1.0  
 Initiales Commit  

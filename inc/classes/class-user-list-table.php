@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) OR exit;
 
 
 
-/* Funktionsbibliothek einbinden */
+/** Funktionsbibliothek einbinden */
 
 if( ! class_exists( 'WP_List_Table' ) ) :
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
@@ -26,11 +26,9 @@ endif;
  * @see     https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
 
-class MDB_User_List_Table extends MDB_Modified_List_Table
-{
+class MDB_User_List_Table extends MDB_Modified_List_Table {
 
-    function get_columns()
-    {
+    function get_columns() {
         $columns = array(
             'col_name'          => 'Teilnehmer',
             'col_email'         => 'E-Mail',
@@ -45,8 +43,7 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
     }
 
 
-    function prepare_items()
-    {
+    function prepare_items() {
         $columns  = $this->get_columns();
         $hidden   = array();
         $sortable = array(); //$this->get_sortable_columns();
@@ -62,8 +59,7 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
     }
 
 
-    function column_default( $item, $column_name )
-    {
+    function column_default( $item, $column_name ) {
         switch( $column_name ) :
             case 'col_name':
                 return sprintf(

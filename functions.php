@@ -11,13 +11,13 @@
 defined( 'ABSPATH' ) or exit;
 
 
-/* Notices ausschalten */
+/** Notices ausschalten */
 
 error_reporting( E_ALL ^ E_NOTICE );
 
 
 
-/* Konstanten */
+/** Konstanten */
 
 define( 'STATUS_USER_ADDED',                 100 );
 define( 'STATUS_WORKSHOPS_NOT_EMPTY',        200 );
@@ -35,7 +35,7 @@ define( 'OPTION_MAIL_MESSAGE',  'fachtagung_mail_message' );
 
 
 
-/* Funktionsbibliothek einbinden */
+/** Funktionsbibliothek einbinden */
 
 require_once( get_template_directory() . '/inc/classes/class-modified-list-table.php' );
 require_once( get_template_directory() . '/inc/classes/class-user-list-table.php' );
